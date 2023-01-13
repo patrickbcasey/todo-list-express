@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <%# links font-awesome %>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,25 +20,25 @@
 <body>
     <h1>Todo List: </h1>
     <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
+    <% for(let i=0; i < items.length; i++) {%> <%# loops through todo items from mongo %>
         <li class="item">
-            <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
-            <% }else{ %>
-                <span><%= items[i].thing %></span>
+            <% if(items[i].completed === true) {%> 
+                <span class='completed'><%= items[i].thing %></span> <%# assigns class of completed if item is marked completed %>
+            <% }else{ %> 
+                <span><%= items[i].thing %></span> <%# otherwise no class %>
             <% } %>    
-            <span class='fa fa-trash'></span>
+            <span class='fa fa-trash'></span> <%# font-awesome %>
         </li>
-    <% } %>
+    <% } %> <%# wrapping curly brace %>
     </ul>
 
-    <h2>Left to do: <%= left %></h2>
+    <h2>Left to do: <%= left %></h2> <%# counts the number of todos not marked completed and puts them here %>
 
     <h2>Add A Todo:</h2>
 
-    <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
-        <input type="submit">
+    <form action="/addTodo" method="POST"> <%# makes a POST requeston the /addTodo route %>
+        <input type="text" placeholder="Thing To Do" name="todoItem"> <%# makes a request.body with a todoItem property with whatever is in the input %>
+        <input type="submit"> <%# submit button %>
     </form>
     
 
